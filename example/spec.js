@@ -1,4 +1,0 @@
-{
-  "": [""],
-  "adb-button__toolbar": []
-}

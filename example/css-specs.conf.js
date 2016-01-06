@@ -1,4 +1,6 @@
 module.exports = {
-  specsPath: './wicket/resources/themes/adp/test/all.js',
-  buildPath: 'appdirect-parent/appdirect/src/main/java/com/appdirect/wicket/target/adp/build.min.css'
+  serverPort: 5000,
+  specsPath: 'specs.js',
+  buildPath: 'build.min.css',
+  template: 'components.html'
 };

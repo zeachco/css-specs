@@ -1,3 +1,4 @@
+var logger = require('./lib/logger')('config');
 var config = require(process.cwd() + '/css-specs.conf');
-console.log('CONFIG >> ', config);
+logger(config, 'blue');
 module.exports = config;

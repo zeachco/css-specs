@@ -6,12 +6,12 @@ var logger = require('./lib/logger')('mainController');
 server.start();
 
 var config = require('./config');
-logger(config, 'orange');
 
 var theme = 'appdirect';
-var specs = {
-  'h1': ['color', 'display']
-};
-renderer('http://localhost:5000/compare?theme=' + theme, specs, function(snapshot) {
+
+var specs = require(path.join(process.cwd(), config.specsPath))
+
+renderer('http://localhost:' + config.serverPort + '/compare?theme=' + theme, specs, function(snapshot) {
   logger(JSON.stringify(snapshot), 'blue');
+  server.stop();
 });
