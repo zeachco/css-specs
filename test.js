@@ -1,6 +1,10 @@
 var page = new WebPage();
 var system = require('system');
 var address = system.args[1];
+var test = system.args[2];
+var snapshotTool = {}// require('./lib/snapshot');
+
+test.sub();
 
 if (address) {
   page.open(address, function(status) {

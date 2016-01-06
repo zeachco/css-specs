@@ -1,1 +1,2 @@
-var jquerygo = require('jquerygo');
+var $ = require('jquerygo');
+$.visit('https://testadp.appdirect.com/home')
