@@ -5,6 +5,7 @@ var Logger = require('./lib/logger');
 function Runtime() {
   var self = this;
   this.template = function(file) {
+    this.template = file;
     self.log(`template: ${file}`, 'yellow');
   };
   this.compare = function(base, specs) {
@@ -34,7 +35,6 @@ function Runtime() {
       });
   };
   this.log = Logger('test');
-  this.server = server.start(5000, self.log);
 }
 
 module.exports = {
