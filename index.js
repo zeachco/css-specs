@@ -2,11 +2,11 @@ var path = require('path');
 var renderer = require('./lib/renderer');
 var server = require('./lib/server');
 var logger = require('./lib/logger')('mainController');
-var config = require('./example/css-specs.conf.js');
 
-logger('hello world');
 server.start();
-// setTimeout(server.stop, 2000);
+
+var config = require('config');
+logger(config, 'orange');
 
 var theme = 'appdirect';
 var specs = {
