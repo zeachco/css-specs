@@ -1,1 +1,2 @@
-console.log('run me!');
+#!/usr/bin/env node
+require('..');
