@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "css-specs && exit 0;"
+    "test": "css-specs"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "css-specs": "^1.0.2"
+    "css-specs": ">0"
   }
 }
