@@ -1,10 +1,11 @@
 var path = require('path');
-// var server = require('./lib/server');
-var Logger = require('./lib/logger');
-var logger = Logger('jquery');
+var renderer = require('./lib/renderer');
+var logger = require('./lib/logger')('mainController');
+var config = require('./example/css-specs.conf.js');
 
-var $ = require('jquerygo');
+logger('hello world');
 
+var theme = 'adp';
 var specs = {
   'h1': ['font-size', 'display']
 };
@@ -38,47 +39,3 @@ $.visit('http://127.0.0.1:5000/compare?theme=' + cssFile, function() {
     page.evaluate(phantomscript, nodescript);
   });
 });
-
-//
-// function Runtime() {
-//   var self = this;
-//   this.template = function(file) {
-//     this.template = file;
-//     self.log(`template: ${file}`, 'yellow');
-//   };
-//   this.compare = function(base, specs) {
-//     self.log(`compare: ${base} ~= ${specs}`, 'yellow');
-//
-//     // start phantom and load templates
-//     var phantomjs = require('phantomjs');
-//     var childProcess = require('child_process')
-//     console.log(`using phantomjs v${phantomjs.version}`.blue);
-//
-//     var childArgs = [
-//       path.join(__dirname, 'test.js'),
-//       'http://localhost:' + 5000, {
-//         sub: function() {
-//           console.log('yay it works');
-//         }
-//       }
-//     ]
-//
-//     var result = '';
-//     var processResult = function(stdout) {
-//       self.log(stdout, 'blue');
-//     };
-//
-//     childProcess.execFile(phantomjs.path, childArgs,
-//       function(err, stdout, stderr) {
-//         processResult(stdout);
-//         if (err) {
-//           self.log(err, 'red');
-//         }
-//       });
-//   };
-//   this.log = Logger('test');
-// }
-//
-// module.exports = {
-//   runtime: Runtime
-// };
