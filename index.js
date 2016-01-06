@@ -1,45 +1,42 @@
 var path = require('path');
-var colors = require('colors');
+var server = require('./lib/server');
+var Logger = require('./lib/logger');
 
-var express = require('express');
-var app = express();
+function Runtime() {
+  var self = this;
+  this.template = function(file) {
+    self.log(`template: ${file}`, 'yellow');
+  };
+  this.compare = function(base, specs) {
+    self.log(`compare: ${base} ~= ${specs}`, 'yellow');
 
-app.get('/', function(req, res) {
-  res.end('yay');
-});
+    // start phantom and load templates
+    var phantomjs = require('phantomjs');
+    var childProcess = require('child_process')
+    console.log(`using phantomjs v${phantomjs.version}`.blue);
 
-app.get('/__log', function(req, res) {
-  console.log('log...'.red, req.params);
-  res.end('yay');
-});
+    var childArgs = [
+      path.join(__dirname, 'test.js'),
+      'http://localhost:' + 5000
+    ]
 
-var port = 5000;
-var server = app.listen(port);
+    var result = '';
+    var processResult = function(stdout) {
+      self.log(stdout, 'blue');
+    };
 
-console.log(`server runs at http://localhost:${port}/`.blue);
-setTimeout(function() {
-  console.log('closing server'.yellow);
-}, 10000);
+    childProcess.execFile(phantomjs.path, childArgs,
+      function(err, stdout, stderr) {
+        processResult(stdout);
+        if (err) {
+          self.log(err, 'red');
+        }
+      });
+  };
+  this.log = Logger('test');
+  this.server = server.start(5000, self.log);
+}
 
-var phantomjs = require('phantomjs');
-var childProcess = require('child_process')
-console.log(`using phantomjs v${phantomjs.version}`.blue);
-
-var childArgs = [
-  path.join(__dirname, 'test.js'),
-  'http://localhost:' + port
-]
-
-var result = '';
-var processResult = function(stdout) {
-  console.log(stdout);
+module.exports = {
+  runtime: Runtime
 };
-
-childProcess.execFile(phantomjs.path, childArgs,
-  function(err, stdout, stderr) {
-    // console.log(arguments);
-    processResult(stdout);
-    if (err) {
-      console.log(err.red);
-    }
-  });
