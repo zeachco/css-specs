@@ -1,0 +1,14 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "css-specs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "css-specs": "0.0.1"
+  }
+}
