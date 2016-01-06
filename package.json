@@ -35,6 +35,7 @@
   "bin": "./bin/css-specs.js",
   "files": [
     "lib/",
-    "bin/"
+    "bin/",
+    "config.js"
   ]
 }
