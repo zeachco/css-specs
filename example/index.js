@@ -1,11 +1,8 @@
-var Runtime = require('css').runtime;
+var cssSpecs = require('..'); // that's our css-specs lib
+var compare = cssSpecs.compare;
+var builder = cssSpecs.builder;
 
-var specs = new Runtime();
-specs.template('example.html');
-specs.compare('build-deutsche.css', 'specs-deutsche.css');
-specs.compare('build-adp.css', ['appdirect-parent/appdirect/src/main/java/com/appdirect/wicket/resources/themes/adp/test/*.spec.css']);
+cssSpecs.template('example.html');
 
-var specs = new Runtime();
-specs.template('example2.html');
-specs.compare('build-deutsche.css', 'specs-deutsche.css');
-specs.compare('build-adp.css', ['appdirect-parent/appdirect/src/main/java/com/appdirect/wicket/resources/themes/adp/test/*.spec.css']);
+builder('compiled-scss-build.css', 'path-to-theme.specs.json', 'path-to-theme.spanshot.json');
+compare('compiled-scss-build.css', 'appdirect-parent/appdirect/src/main/java/com/appdirect/wicket/resources/themes/adp/test/css-snapshot.json');
