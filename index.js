@@ -5,7 +5,7 @@ var logger = require('./lib/logger')('mainController');
 
 server.start();
 
-var config = require('config');
+var config = require('./config');
 logger(config, 'orange');
 
 var theme = 'appdirect';
