@@ -1,5 +1,4 @@
 module.exports = {
-  specsPath: '.json',
-  buildPath: 'appdirect-parent/appdirect/src/main/java/com/appdirect/wicket/resources/target/*.min.css',
-  templateFile: 'templates.html'
+  specsPath: './wicket/resources/themes/adp/test/all.js',
+  buildPath: 'appdirect-parent/appdirect/src/main/java/com/appdirect/wicket/target/adp/build.min.css'
 };
