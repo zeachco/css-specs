@@ -30,7 +30,7 @@ function nodescript(val) {
   logger(val, 'blue');
 }
 
-$.visit('http://127.0.0.1:5000?theme=' + cssFile, function() {
+$.visit('http://127.0.0.1:5000/compare?theme=' + cssFile, function() {
   $.getPage(function(page) {
     $('body').append('<script type="text/javascript">window.spec = ' + JSON.stringify(specs) + '</script>', function() {
 
