@@ -7,9 +7,5 @@
     "test": "css-specs"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "css-specs": "0.0.2"
-  },
-  "bin": "./bin/webpack.js"
+  "license": "ISC"
 }

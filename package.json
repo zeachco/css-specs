@@ -1,6 +1,6 @@
 {
   "name": "css-specs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "report if a compiled / minified / huge css file contain expected styles for given elements",
   "main": "index.js",
   "scripts": {
@@ -32,12 +32,9 @@
   "engines": {
     "node": ">=0.6"
   },
-  "bin": "./bin/webpack.js",
+  "bin": "./bin/css-specs.js",
   "files": [
     "lib/",
-    "bin/",
-    "buildin/",
-    "hot/",
-    "web_modules/"
+    "bin/"
   ]
 }
