@@ -1,1 +1,6 @@
-{"h1":{"color":"rgb(255, 165, 0)","display":"block"},"p":{"margin":"","padding":""}}
+{
+    "h1": {
+        "color": "rgb(0, 0, 0)",
+        "display": "block"
+    }
+}

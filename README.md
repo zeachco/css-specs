@@ -8,6 +8,12 @@ Report the differences from a snapshop versus a compiled / minified / huge css b
 - JSON format output (can be converted to XML for jenkins report and such)
 
 ### How to use
+
+#### from node
+See [example file](example/index.js)
+
+#### from NPM
+
 add in you project
 
 `npm install --save css-specs`
@@ -23,3 +29,23 @@ module.exports = {
   template: 'path/to/template.html'
 };
 ```
+
+add to npm package
+```json
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "css-specs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "css-specs": ">0"
+  }
+}
+```
+
+thne you may run `npm test`

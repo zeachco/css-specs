@@ -6,13 +6,22 @@ var logger = require('./lib/logger')('css-specs', 'blue');
 var snapshot = require('./lib/snapshot');
 
 var config = require('./config');
-var theme = 'appdirect';
-var specs = require(path.join(process.cwd(), config.specsPath))
+var ran = false;
 
-server.start();
-compare('http://localhost:' + config.serverPort + '/compare?theme=' + theme, specs, server.stop);
+setTimeout(function() {
+  if (!ran) {
+    logger('loading config from <' + process.cwd() + '/css-specs.conf>');
+    var theme = 'appdirect';
+    var specs = require(path.join(process.cwd(), config.specsPath))
+    server.start();
+    compare('http://localhost:' + config.serverPort + '/compare?theme=' + theme, specs, server.stop);
+  } else {
+    logger('using node manual execution');
+  }
+}, 0);
 
-function snapshot(url, stylesheet, specs, callback) {
+function execSnapshot(url, specs, callback) {
+  ran = true;
   logger('fetching <' + url + '> ...');
   renderer(url, specs, function(snap) {
     snapshot.save(JSON.stringify(snap));
@@ -21,7 +30,8 @@ function snapshot(url, stylesheet, specs, callback) {
   });
 }
 
-function compare(url, stylesheet, specs, callback) {
+function compare(url, specs, callback) {
+  ran = true;
   logger('comparing <' + url + '> with last snapshot...');
   renderer(url, specs, function(snap) {
     var diff = comparator.compare(snap)
@@ -30,13 +40,18 @@ function compare(url, stylesheet, specs, callback) {
     } else {
       logger(diff, 'red');
     }
-    logger(JSON.stringify(snap), 'blue');
+    logger(JSON.stringify(snap));
     if (typeof callback == 'function')
       callback(snap);
   });
 }
 
 module.exports = {
+  manual: function() {
+    ran = true
+  },
+  logger: logger,
+  renderer: renderer,
   snapshot: snapshot,
   compare: compare,
   server: server,
