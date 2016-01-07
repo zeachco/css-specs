@@ -4,3 +4,6 @@ button:first {
 button:last {
   border-radius: 50em 0 0 50em;
 }
+p {
+  display: flex;
+}

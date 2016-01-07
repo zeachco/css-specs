@@ -1,6 +1,7 @@
 var path = require('path');
 var renderer = require('./lib/renderer');
 var server = require('./lib/server');
+var comparator = require('./lib/comparator');
 var logger = require('./lib/logger')('mainController');
 var snapshot = require('./lib/snapshot');
 
@@ -13,8 +14,9 @@ var theme = 'appdirect';
 var specs = require(path.join(process.cwd(), config.specsPath))
 
 renderer('http://localhost:' + config.serverPort + '/compare?theme=' + theme, specs, function(snap) {
-  snapshot.save(JSON.stringify(snap));
+  // snapshot.save(JSON.stringify(snap));
+  var diff = comparator.compare(snap)
+  logger(diff, 'red');
   logger(JSON.stringify(snap), 'blue');
-
   server.stop();
 });
