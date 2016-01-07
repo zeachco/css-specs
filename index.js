@@ -16,7 +16,8 @@ function snapshot(url, stylesheet, specs, callback) {
   logger('fetching <' + url + '> ...');
   renderer(url, specs, function(snap) {
     snapshot.save(JSON.stringify(snap));
-    callback(snap);
+    if (typeof callback == 'function')
+      callback(snap);
   });
 }
 
@@ -30,7 +31,8 @@ function compare(url, stylesheet, specs, callback) {
       logger(diff, 'red');
     }
     logger(JSON.stringify(snap), 'blue');
-    callback(snap);
+    if (typeof callback == 'function')
+      callback(snap);
   });
 }
 
