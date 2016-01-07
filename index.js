@@ -16,7 +16,11 @@ var specs = require(path.join(process.cwd(), config.specsPath))
 renderer('http://localhost:' + config.serverPort + '/compare?theme=' + theme, specs, function(snap) {
   // snapshot.save(JSON.stringify(snap));
   var diff = comparator.compare(snap)
-  logger(diff, 'red');
+  if (Object.keys(diff).length === 0) {
+    logger('✔ no diff detected', 'green');
+  } else {
+    logger(diff, 'red');
+  }
   logger(JSON.stringify(snap), 'blue');
   server.stop();
 });
