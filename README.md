@@ -10,6 +10,7 @@ Report the differences from a snapshop versus a compiled / minified / huge css b
 ### How to use
 
 #### from node
+If you require it from node and call `.manual()` it will wait 
 See [example file](example/index.js)
 
 #### from NPM
@@ -48,4 +49,4 @@ add to npm package
 }
 ```
 
-thne you may run `npm test`
+then you may run `npm test` to execute the lib with the configuration file.
