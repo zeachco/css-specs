@@ -27,7 +27,8 @@
   "keywords": [
     "css",
     "test",
-    "regression"
+    "regression",
+    "spreadsheet"
   ],
   "engines": {
     "node": ">=0.6"
