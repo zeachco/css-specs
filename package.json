@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "phantomjs ./index.js http://perdu.com",
-    "test": "css-specs --config cssspecs.conf.js"
+    "test": "css-specs --css path/to/css.css --html path/to/html.html"
   },
   "repository": {
     "type": "git",

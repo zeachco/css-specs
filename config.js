@@ -3,7 +3,7 @@ var config = require(process.cwd() + '/css-specs.conf');
 config.prettySnapshots = config.prettySnapshots || false;
 
 module.exports = defaultVals(config, {
-  prettySnapshots: false,
+  prettySnapshots: true,
   snapshotPath: 'snapshots',
   port: 5000
 });
