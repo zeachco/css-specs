@@ -7,6 +7,8 @@ var cssBuildPath = './build.min.css';
 var url = './template.html';
 var specs = require('./specs.js');
 
+// url = 'http://perdu.com';
+
 var cssToCheck = fs.readFileSync(cssBuildPath, 'utf-8');
 if (cs.utils.snapshotExist(cssBuildPath)) {
   log('Getting current styles...');
