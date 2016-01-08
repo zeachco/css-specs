@@ -65,8 +65,16 @@ cs.renderer(url, css, function(result) {
 cs.renderer(url, cssToCheck, function(result) {
   var snapshot = require(cs.utils.snapshotPath(cssBuildPath));
   var diff = cs.comparator.compare(snapshot, result.styles);
-  cs.reporter(diff)
-  timer();
+});
+```
+
+Lastlyl, `.reporter(diffTree)` is used to output differences in the console in a nice way
+
+```javascript
+cs.renderer(url, cssToCheck, function(result) {
+  var snapshot = require(cs.utils.snapshotPath(cssBuildPath));
+  var diff = cs.comparator.compare(snapshot, result.styles);
+  cs.reporter(diff); // <------
 });
 ```
 
