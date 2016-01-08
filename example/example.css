@@ -1,0 +1,21 @@
+h1 {
+  color: yellow;
+}
+p {
+  display: block;
+  padding: 2px 3px 4px 2%;
+  border-width: 2px;
+  border-style: dashed;
+  border-color: blue;
+  /*border: solid 1px black;*/
+  box-sizing: border-box;
+}
+a {
+  color: green;
+}
+.adb-styled {
+  border-radius: 50em;
+}
+#tabs {
+  marging-top: 5%;
+}
