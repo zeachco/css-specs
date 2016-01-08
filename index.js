@@ -49,13 +49,10 @@ var ran = false;
 // }
 
 module.exports = {
-  manual: function() {
-    ran = true
-  },
   log: require('./lib/logger'),
   renderer: renderer,
   snapshot: snapshot,
-  // compare: compare,
+  reporter: require('./lib/reporter'),
   comparator: comparator,
   server: server,
   utils: utils,

@@ -13,15 +13,8 @@ if (cSpecs.utils.snapshotExist(cssBuildPath)) {
   cSpecs.renderer(url, cssToCheck, specs, function(result) {
     var validshot = require(cSpecs.utils.snapshotPath(cssBuildPath));
     log('Comparing to last valid snapshot...');
-    cSpecs.comparator.compare(validshot, result.styles, function(diff) {
-      log(diff);
-      if (Object.keys(diff).length) {
-        logger('✔ no diff detected', 'green');
-      } else {
-        logger('✗ build doesn\'t match!', 'red');
-        logger(diff, 'red');
-      }
-    });
+    var diff = cSpecs.comparator.compare(validshot, result.styles)
+    cSpecs.reporter(diff)
   });
 } else {
   log('snapshot does not exist, creating it...', 'red');
