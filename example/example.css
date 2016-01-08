@@ -1,5 +1,6 @@
 h1 {
   color: yellow! important;
+  background: url(miss_philippine.png)
 }
 p {
   display: block;
@@ -9,7 +10,7 @@ p {
   border-color: blue;
   border: solid 1px black;
   box-sizing: border-box;
-  background: url('/miss-phillipine.png');
+  background: url('/miss-colombia.png');
 }
 a {
   color: red;

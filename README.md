@@ -1,7 +1,7 @@
 # css-specs (CSSS)
 Report the differences from a builded css file after modification. Based on selector and rule specifications that are being saved automatically from any given local html file or external urls.
 
-### Features
+## Features
 - Create a snapshot from existing compiled style
 - Compare compiled styles to last valid snapshot for that css build
 - Report differences displaying actual and expected css values
@@ -10,7 +10,12 @@ Report the differences from a builded css file after modification. Based on sele
 - can load any stylesheet file that is local to your computer
 - load remote stylesheets if present in the template or the remote server
 
-### How to use
+## Pictures
+![Console output 1](example/output1.png "Console output 1")
+
+![Console output 1](example/output2.png "Console output 1")
+
+## How to use
 add in you project
 
 `npm install --save css-specs`
@@ -25,9 +30,47 @@ module.exports = {
 };
 ```
 
-Now you may use it!
+When you require it, you have a few methods exposed to handle different use cases.
 
-Refer to the [example](example/index.js) that you might run with `node index.js` from the example repository for advanced usage.
+```javascript
+var cs = require('..'); // that's our css-specs lib
+var fs = require('fs');
 
-### API
+var cssBuildPath = 'example.css'; // can be any local path
+var url = './example.html'; // can be external urls as well
+
+// get css as a string
+var css = fs.readFileSync(cssBuildPath, 'utf-8');
+```
+
+`.renderer(url, css, callback)` is used to render the current page with the specified style and return computed values.
+
+```javascript
+cs.renderer(url, css, function(result) {
+  /* do somthing with the results... */
+});
+```
+
+`.snapshot.save(cssBuildPath, result.styles)` is used to save a result after being rendered.
+
+```javascript
+cs.renderer(url, css, function(result) {
+  cs.snapshot.save(cssBuildPath, result.styles);
+});
+```
+
+`.comparator.compare(cssBuildPath, result.styles)` is used to compare two different results.
+
+```javascript
+cs.renderer(url, cssToCheck, function(result) {
+  var snapshot = require(cs.utils.snapshotPath(cssBuildPath));
+  var diff = cs.comparator.compare(snapshot, result.styles);
+  cs.reporter(diff)
+  timer();
+});
+```
+
+Refer to the [example](example/index.js) that you might run with `node index.js` for "real-life" usage.
+
+## API
 We encourage reading the source code from [the entry point](index.js) and the [config defaults](config.js)

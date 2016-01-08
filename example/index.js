@@ -4,11 +4,11 @@ var fs = require('fs');
 var log = cs.logger('example', 'yellow');
 var timer = log.timer('full run', 'magenta');
 
-var cssBuildPath = '/home/olivier/dev/AppDirect/appdirect-parent/appdirect/target/classes/com/appdirect/wicket/resources/spa/themes/adp/styles/generated-styles.css';
+var cssBuildPath = 'example.css';
 var url = './example.html';
 
-// url = 'https://testadp.appdirect.com/';
-// cssBuildPath = '/home/olivier/somebuild.css';
+// url = 'http://perdu.com/';
+// cssBuildPath = '/home/zeachco/dev/css/build/style.min.css';
 
 var cssToCheck = fs.readFileSync(cssBuildPath, 'utf-8');
 
