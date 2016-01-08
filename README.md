@@ -1,20 +1,16 @@
-# css-specs
-Report the differences from a snapshop versus a compiled / minified / huge css based on selector and rule specifications
+# css-specs (CSSS)
+Report the differences from a builded css file after modification. Based on selector and rule specifications that are being saved automatically from any given local html file or external urls.
 
 ### Features
 - Create a snapshot from existing compiled style
-- Compare compiled styles to last valid snapshot
+- Compare compiled styles to last valid snapshot for that css build
 - Report differences displaying actual and expected css values
 - JSON format output (can be converted to XML for jenkins report and such)
+- can be pointed to any html template (remote or local)
+- can load any stylesheet file that is local to your computer
+- load remote stylesheets if present in the template or the remote server
 
 ### How to use
-
-#### from node
-If you require it from node and call `.manual()` it will wait 
-See [example file](example/index.js)
-
-#### from NPM
-
 add in you project
 
 `npm install --save css-specs`
@@ -23,30 +19,15 @@ create a config file named `css-specs.conf.js`
 
 ```javascript
 module.exports = {
-  serverPort: 5000,
-  specsPath: 'path/to/specs.js',
-  snapshotPath: 'path/to/dir/for/snapshots/',
-  buildPath: 'path/to/build.min.css',
-  template: 'path/to/template.html'
+  prettySnapshots: false,
+  snapshotPath: 'snapshots',
+  port: 5000
 };
 ```
 
-add to npm package
-```json
-{
-  "name": "example",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "css-specs"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "css-specs": ">0"
-  }
-}
-```
+Now you may use it!
 
-then you may run `npm test` to execute the lib with the configuration file.
+Refer to the [example](example/index.js) that you might run with `node index.js` from the example repository for advanced usage.
+
+### API
+We encourage reading the source code from [the entry point](index.js) and the [config defaults](config.js)
