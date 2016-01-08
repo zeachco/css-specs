@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "css-specs": ">0"
+    "css-specs": "^2.0.1"
   }
 }

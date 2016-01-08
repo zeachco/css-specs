@@ -1,26 +1,26 @@
-var cSpecs = require('..'); // that's our css-specs lib
+var cs = require('..'); // that's our css-specs lib
 var fs = require('fs');
 
-var log = cSpecs.log('example', 'yellow');
+var log = cs.logger('example', 'yellow');
 
 var cssBuildPath = './build.min.css';
-var cssToCheck = fs.readFileSync(cssBuildPath, 'utf-8');
+var url = './template.html';
 var specs = require('./specs.js');
-var url = 'http://perdu.com';
 
-if (cSpecs.utils.snapshotExist(cssBuildPath)) {
+var cssToCheck = fs.readFileSync(cssBuildPath, 'utf-8');
+if (cs.utils.snapshotExist(cssBuildPath)) {
   log('Getting current styles...');
-  cSpecs.renderer(url, cssToCheck, specs, function(result) {
-    var validshot = require(cSpecs.utils.snapshotPath(cssBuildPath));
+  cs.renderer(url, cssToCheck, specs, function(result) {
+    var validshot = require(cs.utils.snapshotPath(cssBuildPath));
     log('Comparing to last valid snapshot...');
-    var diff = cSpecs.comparator.compare(validshot, result.styles)
-    cSpecs.reporter(diff)
+    var diff = cs.comparator.compare(validshot, result.styles)
+    cs.reporter(diff)
   });
 } else {
   log('snapshot does not exist, creating it...', 'red');
-  cSpecs.renderer(url, cssToCheck, specs, function(result) {
+  cs.renderer(url, cssToCheck, specs, function(result) {
     if (result.stats.stylesSize > 0) {
-      cSpecs.snapshot.save(cssBuildPath, result.styles);
+      cs.snapshot.save(cssBuildPath, result.styles);
       log('snapshot saved, you may run it again after changes');
     } else {
       log('Nothing to save');

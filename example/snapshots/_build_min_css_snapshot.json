@@ -1,0 +1,14 @@
+{
+    ".adb-button*": {
+        "background": "",
+        "border": "",
+        "border-radius": "",
+        "color": "rgb(91, 91, 91)",
+        "margin": "",
+        "padding": ""
+    },
+    "h1": {
+        "color": "rgb(77, 77, 77)",
+        "display": "block"
+    }
+}
