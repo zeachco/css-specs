@@ -1,6 +1,6 @@
 {
   "name": "css-specs",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "report if a compiled / minified / huge css file contain expected styles for given elements",
   "main": "index.js",
   "scripts": {
