@@ -11,9 +11,7 @@ Report the differences from a builded css file after modification. Based on sele
 - load remote stylesheets if present in the template or the remote server
 
 ## Pictures
-![Console output 1](example/output1.png "Console output 1")
-
-![Console output 1](example/output2.png "Console output 1")
+![Console output](images/example.png "Console output")
 
 ## How to use
 add in you project
