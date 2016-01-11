@@ -45,7 +45,7 @@ var css = fs.readFileSync(cssBuildPath, 'utf-8');
 
 ```javascript
 cs.renderer(url, css, function(result) {
-  /* do somthing with the results... */
+  /* do something with the results... */
 });
 ```
 
