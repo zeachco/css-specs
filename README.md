@@ -1,5 +1,16 @@
-# css-specs (CSSS)
-Report the differences from a builded css file after modification. Based on selector and rule specifications that are being saved automatically from any given local html file or external urls.
+# Css-specs
+Test CSS programmatically
+
+## What ?
+It's a tool that reports the differences from a very big stylesheet based on previous versions. It's based on selector and rule specifications that are being saved automatically from any given local html.
+
+## Why ?
+This tool has emerged from the frustration of manually testing the result of a very large css codebase. Most likely emerging from a compiled language such as SASS, LESS or custom css builder.
+
+It can be usefull to
+- make sure the css rules realy apply or make sense
+- detect unwanted changes from an other rule
+- deeply report the difference between two states
 
 ## Features
 - Create a snapshot from existing compiled style
