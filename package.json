@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "phantomjs ./index.js http://perdu.com",
-    "test": "css-specs --css path/to/css.css --html path/to/html.html"
+    "test": "eslint lib"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,9 @@
     "jquerygo": "0.0.16",
     "phantomjs": "^1.9.19"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^3.12.0"
+  },
   "keywords": [
     "css",
     "test",
