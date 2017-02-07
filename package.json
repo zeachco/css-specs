@@ -21,7 +21,7 @@
     "colors": "^1.1.2",
     "express": "^4.13.3",
     "jquerygo": "0.0.16",
-    "phantomjs": "^1.9.19"
+    "phantomjs": "^2.1.7"
   },
   "devDependencies": {
     "eslint": "^3.12.0"
