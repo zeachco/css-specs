@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/zeachco/css-specs#readme",
   "dependencies": {
-    "colors": "^1.1.2",
+    "colors": "^1.2.4",
     "express": "^4.13.3",
     "jquerygo": "0.0.16",
     "phantomjs": "^2.1.7"
